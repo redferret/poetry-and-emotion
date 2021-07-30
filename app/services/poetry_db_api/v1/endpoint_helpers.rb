@@ -6,7 +6,7 @@ module EndpointHelpers
 
   # API Endpoint Helpers
 
-  def get_poem_endpoint(title)
-    "title/#{title}".freeze
+  def get_poems_endpoint(author, count)
+    "author,poemcount/#{author};#{count}".freeze
   end
 end

@@ -2,5 +2,5 @@ Dir[Rails.root.join('app/services/poetry_db_api/v1/api_calls/*.rb')].sort.each {
 
 class PoetryDbApi::V1::ApiEndpoints < PoetryDbApi::V1::Client
   # API call modules
-  extend GetPoem
+  extend GetPoems
 end
