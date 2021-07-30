@@ -13,6 +13,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'faraday'
 gem 'figaro'
+gem 'red-api'
+gem 'active_model_serializers'
+gem 'oj'
 
 group :development, :test do
   gem 'pry'
@@ -23,6 +26,9 @@ group :test do
   gem 'capybara'
   gem 'launchy'
   gem 'simplecov'
+  gem 'webmock'
+  gem 'database_cleaner'
+  gem 'shoulda-matchers'
 end
 
 group :development do
