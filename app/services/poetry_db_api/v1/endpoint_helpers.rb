@@ -1,5 +1,5 @@
 module EndpointHelpers
-  def api_endpoint
+  def poetrydb_api_endpoint
     # The http API endpoint for this service
     'https://poetrydb.org/'.freeze
   end

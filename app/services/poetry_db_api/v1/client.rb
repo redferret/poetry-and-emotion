@@ -6,7 +6,7 @@ class PoetryDbApi::V1::Client
   def self.client(params)
     # Additional params can be added here
     Faraday.new(
-      url: api_endpoint,
+      url: poetrydb_api_endpoint,
       params: params
     )
   end
@@ -15,6 +15,8 @@ class PoetryDbApi::V1::Client
     raise 'API endpoint must be defined' if endpoint.nil?
 
     connection = client(params)
+
+binding.pry
 
     @response = connection.send(method, endpoint)
 

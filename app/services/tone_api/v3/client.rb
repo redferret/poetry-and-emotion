@@ -8,7 +8,7 @@ class ToneApi::V3::Client
     params['version'] = '2017-09-21'
     
     Faraday.new(
-      url: api_endpoint,
+      url: tones_api_endpoint,
       params: params
     ) do |connection|
       connection.basic_auth('apikey', ENV['tone_api_key'])
