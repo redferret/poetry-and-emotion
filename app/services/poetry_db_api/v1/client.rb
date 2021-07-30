@@ -16,8 +16,6 @@ class PoetryDbApi::V1::Client
 
     connection = client(params)
 
-binding.pry
-
     @response = connection.send(method, endpoint)
 
     return parse_json if response_successful?

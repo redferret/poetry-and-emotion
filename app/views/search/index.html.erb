@@ -1,0 +1,20 @@
+<table id='poems'>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Poem</th>
+      <th>Tones</th>
+    </th>
+  </thead>
+  <tbody>
+    <% @poems.each_with_index do |poem, index| %>
+      <tr id='poem-<%=index + 1%>'>
+        <td><%= poem[:title]%></td>
+        <td><%= poem[:author]%></td>
+        <td><%= poem[:lines].join("\n")%></td>
+        <td><%= @tones[index]%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -7,12 +7,18 @@ RSpec.describe 'The search page' do
       .with(headers: test_headers_for_poems).to_return(status: 200, body: poetry_mock_data, headers: {})
 
     tones_mock_data = load_json('tone_data.json')
-    stub_request(:get, 'https://api.us-south.tone-analyzer.watson.cloud.ibm.com/instances/d7ecd15c-2bef-4ec0-9e35-f588f6cb72ec/v3/tone?version=2017-09-21')
+    stub_request(:get, 'https://api.us-south.tone-analyzer.watson.cloud.ibm.com/instances/d7ecd15c-2bef-4ec0-9e35-f588f6cb72ec/v3/tone?text=&version=2017-09-21')
       .with(headers: test_headers_for_tones).to_return(status: 200, body: tones_mock_data, headers: {})
   end
 
+  before :each do 
+    visit '/'
+    fill_in 'author', with: 'Emily'
+    click_button 'Get Poems'
+  end
+
   describe 'results' do
-    it 'shows a list of poems 10 poems' do
+    it 'shows a list of 10 poems' do
       within '#poems' do
         expect(page).to have_selector('tr', count: 10)
       end

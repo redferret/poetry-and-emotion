@@ -4,10 +4,10 @@ RSpec.describe ToneApi::V3::ApiEndpoints do
   describe 'get_tones' do
     it 'returns expected data when successful' do
       mock_data = load_json('tone_data.json')
-      stub_request(:get, 'https://api.us-south.tone-analyzer.watson.cloud.ibm.com/instances/d7ecd15c-2bef-4ec0-9e35-f588f6cb72ec/v3/tone?version=2017-09-21')
+      stub_request(:get, 'https://api.us-south.tone-analyzer.watson.cloud.ibm.com/instances/d7ecd15c-2bef-4ec0-9e35-f588f6cb72ec/v3/tone?text=&version=2017-09-21')
        .with(headers: test_headers_for_tones).to_return(status: 200, body: mock_data, headers: {})
 
-      response = ToneApi::V3::ApiEndpoints.get_tones
+      response = ToneApi::V3::ApiEndpoints.get_tones('')
 
       expect(response).to have_key(:document_tone)
       document_tone = response[:document_tone]
